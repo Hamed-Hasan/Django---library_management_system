@@ -19,7 +19,7 @@ class UserRegisterView(CreateView):
 class UserProfileUpdateView(UpdateView):
     model = UserProfile
     form_class = UserProfileForm
-    template_name = 'account/update_profile.html'
+    template_name = 'account/profile.html'
     success_url = reverse_lazy('library:book_list')
 
     def get_object(self):
