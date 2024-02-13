@@ -2,7 +2,10 @@
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import include, path,  re_path
+from django.views.generic.base import RedirectView
+
+
 from core.views import HomeView
 
 urlpatterns = [
@@ -11,6 +14,8 @@ urlpatterns = [
     path('account/', include('account.urls')),
     path('library/', include('library.urls')),
     path('transaction/', include('transaction.urls')),
+    re_path(r'^accounts/profile/$', RedirectView.as_view(url='/account/profile/', permanent=True)),
+
 ]
 
 if settings.DEBUG:

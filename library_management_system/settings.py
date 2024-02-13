@@ -39,9 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'library',
     'transaction',
-    'account',
-    'core'
+    'core',
+    'django_extensions',
+    'account.apps.AccountConfig',  # Keep this
+    # Remove 'account', to prevent the duplication error
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
