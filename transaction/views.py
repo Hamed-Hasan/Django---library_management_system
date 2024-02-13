@@ -1,7 +1,8 @@
 from django.contrib.auth import login
 from django.views.generic import CreateView, ListView
 from django.urls import reverse_lazy
-from .models import UserProfile, Borrow
+from .models import  Borrow
+from account.models import  UserProfile
 from .forms import  BorrowForm
 from django.shortcuts import redirect
 from django.utils import timezone
