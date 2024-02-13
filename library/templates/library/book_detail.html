@@ -1,0 +1,25 @@
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mx-auto">
+    <h1 class="text-3xl font-bold my-4">{{ book.title }}</h1>
+    <img class="w-full md:w-1/2 lg:w-1/3 mx-auto" src="{{ book.image.url }}" alt="{{ book.title }}">
+    <p class="my-4">{{ book.description }}</p>
+    <p class="my-4">Borrowing price: ${{ book.borrowing_price }}</p>
+    <a href="{% url 'library:book_review' book.pk %}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add Review</a>
+    <!-- Reviews Section -->
+    <div class="my-4">
+        <h2 class="text-2xl font-bold">Reviews</h2>
+        {% for review in book.reviews.all %}
+            <div class="border-t border-gray-200 mt-2 py-2">
+                <p>{{ review.content }}</p>
+                <small>by {{ review.user.username }} on {{ review.created_at }}</small>
+            </div>
+        {% empty %}
+            <p>No reviews yet.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
