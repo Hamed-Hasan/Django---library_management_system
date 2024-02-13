@@ -7,6 +7,7 @@ from .forms import UserRegisterForm, UserProfileForm, BorrowForm
 from django.shortcuts import redirect
 from django.utils import timezone
 
+
 class UserRegisterView(CreateView):
     form_class = UserRegisterForm
     template_name = 'transaction/register.html'
