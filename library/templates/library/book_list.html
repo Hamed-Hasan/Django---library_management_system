@@ -1,0 +1,26 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mx-auto">
+    <h1 class="text-xl font-semibold my-4">Book List</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {% for book in books %}
+        <div class="max-w-sm rounded overflow-hidden shadow-lg">
+            <img class="w-full" src="{{ book.image.url }}" alt="{{ book.title }}">
+            <div class="px-6 py-4">
+                <div class="font-bold text-xl mb-2">{{ book.title }}</div>
+                <p class="text-gray-700 text-base">
+                    {{ book.description|truncatewords:20 }}
+                </p>
+                <div class="mt-4">
+                    <a href="{% url 'library:book_detail' book.pk %}" class="text-blue-500 hover:text-blue-800">Learn more</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p>No books available.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
