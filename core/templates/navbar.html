@@ -15,20 +15,20 @@
           Books
         </a>
         {% if user.is_authenticated %}
-        <a href="{% url 'borrow_list' %}" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+        <a href="{% url 'transaction:borrow_list' %}" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
           My Borrowings
         </a>
-        <a href="{% url 'profile' %}" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
+        <a href="{% url 'account:profile' %}" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
           Profile
         </a>
         {% endif %}
       </div>
       <div>
         {% if user.is_authenticated %}
-        <a href="{% url 'logout' %}" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Logout</a>
+        <a href="{% url 'account:logout' %}" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Logout</a>
         {% else %}
-        <a href="{% url 'login' %}" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Login</a>
-        <a href="{% url 'register' %}" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Register</a>
+        <a href="{% url 'account:login' %}" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Login</a>
+        <a href="{% url 'account:register' %}" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Register</a>
         {% endif %}
       </div>
     </div>

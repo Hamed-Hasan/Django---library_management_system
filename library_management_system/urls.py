@@ -11,9 +11,9 @@ from core.views import HomeView
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
     path('admin/', admin.site.urls),
-    path('account/', include('account.urls')),
+    path('account/', include('account.urls', namespace='account')),
     path('library/', include('library.urls')),
-    path('transaction/', include('transaction.urls')),
+    path('transaction/', include('transaction.urls', namespace='transaction')),
     re_path(r'^accounts/profile/$', RedirectView.as_view(url='/account/profile/', permanent=True)),
 
 ]
