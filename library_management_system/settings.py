@@ -45,6 +45,14 @@ INSTALLED_APPS = [
     # Remove 'account', to prevent the duplication error
 ]
 
+# Email settings
+EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_PORT=587
+EMAIL_HOST_USER='engr.hamedhasan@gmail.com'
+EMAIL_HOST_PASSWORD='nqzd yipj wwct qcam'
+EMAIL_USE_TLS=True
+DEFAULT_FROM_EMAIL='engr.hamedhasan@gmail.com'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
