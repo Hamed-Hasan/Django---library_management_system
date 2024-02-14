@@ -10,22 +10,13 @@ from django.conf import settings
 class UserRegisterView(CreateView):
     form_class = UserRegisterForm
     template_name = 'account/register.html'
-    success_url = reverse_lazy('login')
-
-    def form_valid(self, form):
-        valid = super().form_valid(form)  # This saves the User model
-        UserProfile.objects.create(user=self.object)  # Create UserProfile for the new user
-        login(self.request, self.object)  # Log in the newly created user
-        return valid
-
-    form_class = UserRegisterForm
-    template_name = 'account/register.html'
-    success_url = reverse_lazy('login')
+    success_url = reverse_lazy('account:login')
 
     def form_valid(self, form):
         valid = super().form_valid(form)
         login(self.request, self.object)
         return valid
+
 
 class UserProfileUpdateView(SuccessMessageMixin, UpdateView):
     model = UserProfile
