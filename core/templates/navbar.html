@@ -1,3 +1,5 @@
+{% load library_tags %}
+
 <header class="bg-blue-600">
   <nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
     <div class="flex items-center flex-shrink-0 text-white mr-6">
@@ -21,6 +23,16 @@
         <a href="{% url 'account:profile' %}" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
           Profile
         </a>
+        <!-- Conditionally show Create Book link == and is_correct_ip == -->
+ 
+        <a href="{% url 'library:book_create' %}" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
+            Create Book
+        </a>
+        {% if user.is_authenticated  %}
+<a href="{% url 'library:category_create' %}" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
+    Create Category
+</a>
+{% endif %}
         {% endif %}
       </div>
       <div>

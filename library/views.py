@@ -2,7 +2,22 @@ from django.views.generic import ListView, DetailView, CreateView
 from django.urls import reverse_lazy
 from .models import Book, Category
 from transaction.models import Review
-from .forms import ReviewForm
+from .forms import BookForm,CategoryForm,ReviewForm
+
+
+
+
+class CategoryCreateView(CreateView):
+    model = Category
+    form_class = CategoryForm
+    template_name = 'library/category_create.html'
+    success_url = reverse_lazy('library:book_list') 
+
+class BookCreateView(CreateView):
+    model = Book
+    form_class = BookForm
+    template_name = 'library/book_create.html'
+    success_url = reverse_lazy('library:book_list')
 
 class BookListView(ListView):
     model = Book
