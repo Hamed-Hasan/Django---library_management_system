@@ -29,7 +29,8 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'library-management-system-xj3c.onrender.com', '.onrender.com']
 
-CSRF_TRUSTED_ORIGINS = ['library-management-system-xj3c.onrender.com', 'https://*.127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://library-management-system-xj3c.onrender.com']
+
 
 
 # Application definition
