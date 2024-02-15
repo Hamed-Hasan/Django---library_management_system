@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 from decouple import config
+import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -109,16 +110,22 @@ WSGI_APPLICATION = 'library_management_system.wsgi.application'
 #     }
 # }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': config('DB_ENGINE'),
+#         'NAME': config('DB_NAME'),
+#         'USER': config('DB_USER'),
+#         'PASSWORD': config('DB_PASSWORD'),
+#         'HOST': config('DB_HOST'),
+#         'PORT': config('DB_PORT'),
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': config('DATABASE_URL'),
-        'ENGINE': config('DB_ENGINE'),
-        # 'NAME': config('DB_NAME'),
-        # 'USER': config('DB_USER'),
-        # 'PASSWORD': config('DB_PASSWORD'),
-        # 'HOST': config('DB_HOST'),
-        # 'PORT': config('DB_PORT'),
-    }
+    'default': dj_database_url.config(
+        # Feel free to alter this value to suit your needs.
+        default='postgres://library_3hhy_user:glsnNK1adsuYoaVBGvWfltHXiGjKjOJI@dpg-cn6q4d0l6cac73bpl6r0-a.oregon-postgres.render.com/library_3hhy',
+    )
 }
 
 # Password validation
